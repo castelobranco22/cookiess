@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Cookie Clicker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7edd4;
+            color: #5d4037;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .placar {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Estilo do Cookie Gigante */
+        .cookie-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.1s ease;
+        }
+
+        .cookie-btn:active {
+            transform: scale(0.92);
+        }
+
+        .cookie-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            filter: drop-shadow(0px 8px 10px rgba(0,0,0,0.15));
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cookie Clicker do Git</h1>
+    
+    <div class="placar">
+        Cookies: <span id="contador">0</span>
+    </div>
+
+    <button class="cookie-btn" onclick="clicarNoCookie()">
+        <img class="cookie-img" src="https://cdn-icons-png.flaticon.com/512/541/541732.png" alt="Cookie gigante">
+    </button>
+
+    <script>
+        // Lógica do jogo
+        let totalCookies = 0;
+        const elementoContador = document.getElementById('contador');
+
+        function clicarNoCookie() {
+            totalCookies++;
+            elementoContador.innerText = totalCookies;
+        }
+    </script>
+
+</body>
+</html>
