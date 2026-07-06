@@ -1,80 +1,289 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Clicker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7edd4;
-            color: #5d4037;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍪 Mundo dos Cookies</title>
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+<style>
 
-        .placar {
-            font-size: 2rem;
-            font-weight: bold;
-            background-color: #fff;
-            padding: 10px 30px;
-            border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .cookie-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            outline: none;
-            transition: transform 0.1s ease;
-        }
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5e6d3;
+    transition:0.5s;
+}
 
-        .cookie-btn:active {
-            transform: scale(0.9);
-        }
+header{
+    background:#8B4513;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
 
-        .cookie-img {
-            width: 200px;
-            height: 200px;
-            user-select: none;
-            -webkit-user-drag: none;
-        }
-    </style>
+main{
+    width:80%;
+    max-width:900px;
+    margin:30px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+img{
+    width:100%;
+    border-radius:12px;
+    margin:20px 0;
+}
+
+h2{
+    color:#8B4513;
+    margin-bottom:10px;
+}
+
+ul{
+    margin-left:25px;
+    margin-top:10px;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin:8px;
+    font-size:16px;
+}
+
+#curtir{
+    background:#ff6b6b;
+    color:white;
+}
+
+#escuro{
+    background:#333;
+    color:white;
+}
+
+#curiosidade{
+    background:#d2691e;
+    color:white;
+}
+
+footer{
+    background:#8B4513;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+.escuro{
+    background:#222;
+    color:white;
+}
+
+.escuro main{
+    background:#333;
+    color:white;
+}
+
+.escuro h2{
+    color:#ffd27f;
+}
+
+.escuro header,
+.escuro footer{
+    background:#111;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+}
+
+#comentarios{
+    margin-top:20px;
+}
+
+.comentario{
+    background:#eee;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+.escuro .comentario{
+    background:#555;
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <h1>Cookie Clicker</h1>
-    
-    <div class="placar">
-        Cookies: <span id="contador">0</span>
-    </div>
+<header>
 
-    <button class="cookie-btn" onclick="clicarNoCookie()">
-        <img class="cookie-img" src="https://cdn-icons-png.flaticon.com/512/541/541732.png" alt="Cookie">
-    </button>
+<h1>🍪 Mundo dos Cookies</h1>
 
-    <script>
-        let totalCookies = 0;
-        const elementoContador = document.getElementById('contador');
+<p>Receitas, curiosidades e muito chocolate!</p>
 
-        function clicarNoCookie() {
-            totalCookies++;
-            elementoContador.innerText = totalCookies;
-        }
-    </script>
+</header>
+
+<main>
+
+<h2>Meu primeiro post</h2>
+
+<p><strong>Autor:</strong> Seu Nome</p>
+
+<img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=900" alt="Cookies">
+
+<p>
+
+Os cookies são doces deliciosos feitos com farinha, manteiga, açúcar e gotas de chocolate.
+
+Existem centenas de receitas diferentes ao redor do mundo.
+
+</p>
+
+<br>
+
+<h2>Ingredientes</h2>
+
+<ul>
+
+<li>🍪 Farinha</li>
+
+<li>🧈 Manteiga</li>
+
+<li>🥚 Ovos</li>
+
+<li>🍫 Chocolate</li>
+
+<li>🍬 Açúcar</li>
+
+<li>🥄 Fermento</li>
+
+</ul>
+
+<br>
+
+<button id="curtir" onclick="curtir()">
+❤️ Curtir
+</button>
+
+<span id="contador">0</span> curtidas
+
+<br><br>
+
+<button id="escuro" onclick="modoEscuro()">
+🌙 Modo Escuro
+</button>
+
+<button id="curiosidade" onclick="curiosidade()">
+🍪 Curiosidade
+</button>
+
+<p id="textoCuriosidade" style="margin-top:20px;"></p>
+
+<hr style="margin:30px 0;">
+
+<h2>💬 Comentários</h2>
+
+<input
+type="text"
+id="comentario"
+placeholder="Escreva um comentário">
+
+<br><br>
+
+<button onclick="enviarComentario()">
+Enviar
+</button>
+
+<div id="comentarios"></div>
+
+</main>
+
+<footer>
+
+<p>© 2026 - Blog Mundo dos Cookies</p>
+
+</footer>
+
+<script>
+
+let curtidas = 0;
+
+function curtir(){
+
+curtidas++;
+
+document.getElementById("contador").innerHTML = curtidas;
+
+}
+
+function modoEscuro(){
+
+document.body.classList.toggle("escuro");
+
+}
+
+function curiosidade(){
+
+const curiosidades=[
+
+"🍪 O maior cookie já feito pesava mais de 18 toneladas.",
+
+"🍫 O cookie com gotas de chocolate foi criado em 1938.",
+
+"🥛 Cookies combinam perfeitamente com leite.",
+
+"🌎 Existem centenas de sabores de cookies no mundo.",
+
+"🍪 O dia nacional do Cookie é comemorado em 4 de dezembro."
+
+];
+
+let numero=Math.floor(Math.random()*curiosidades.length);
+
+document.getElementById("textoCuriosidade").innerHTML=curiosidades[numero];
+
+}
+
+function enviarComentario(){
+
+let texto=document.getElementById("comentario").value;
+
+if(texto==""){
+
+alert("Digite um comentário.");
+
+return;
+
+}
+
+let novo=document.createElement("div");
+
+novo.className="comentario";
+
+novo.innerHTML=texto;
+
+document.getElementById("comentarios").appendChild(novo);
+
+document.getElementById("comentario").value="";
+
+}
+
+</script>
 
 </body>
 </html>
